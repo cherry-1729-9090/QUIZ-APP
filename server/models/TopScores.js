@@ -6,4 +6,4 @@ const topScoresSchema = new mongoose.Schema({
   score: { type: Number, default: 0 },
 });
 
-module.exports = mongoose.model('TopScores', topScoresSchema);
+module.exports = mongoose.models.TopScores || mongoose.model('TopScores', topScoresSchema);

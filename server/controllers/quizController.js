@@ -1,5 +1,5 @@
 const Quiz = require('../models/Quiz');
-const TopScores = require('../models/TopScores');
+const TopScores = require('../models/topScores');
 const User = require('../models/user');
 
 exports.createQuiz = async (req, res) => {
