@@ -12,7 +12,7 @@ const questionSchema = new mongoose.Schema({
   correct_options: [String],
   difficulty: {
     type: String,
-    enum: ['easy', 'medium', 'hard'], // Difficulty level of the question
+    enum: ['easy', 'medium', 'hard'],
     required: true,
   },
   quiz_id: { type: mongoose.Schema.Types.ObjectId, ref: 'Quiz' },

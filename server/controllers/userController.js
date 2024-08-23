@@ -3,6 +3,7 @@ const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 
 exports.register = async (req, res) => {
+  console.log(req.body);
   try {
     const { user_name, password } = req.body;
     const hashedPassword = await bcrypt.hash(password, 10);
@@ -19,6 +20,7 @@ exports.register = async (req, res) => {
 };
 
 exports.login = async (req, res) => {
+  console.log(req.body);
   try {
     const { user_name, password } = req.body;
     const user = await User.findOne({ user_name });
@@ -30,12 +32,12 @@ exports.login = async (req, res) => {
     const token = user.jwt;
     try {
       jwt.verify(token, process.env.JWT_SECRET);
-      res.status(200).json({ message: 'Login successful', token });
+      res.status(200).json({ message: 'Login successful', token,user });
     } catch (error) {
       const newToken = jwt.sign({ user_id: user._id }, process.env.JWT_SECRET, { expiresIn: '10h' });
       user.jwt = newToken;
       await user.save();
-      res.status(200).json({ message: 'Login successful', token: newToken });
+      res.status(200).json({ message: 'Login successful', token: newToken ,user});
     }
   } catch (error) {
     res.status(400).json({ error: error.message });

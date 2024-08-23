@@ -1,11 +1,11 @@
 const Quiz = require('../models/Quiz');
 const TopScores = require('../models/TopScores');
-const User = require('../models/User');
+const User = require('../models/user');
 
 exports.createQuiz = async (req, res) => {
   try {
     const { quiz_name, quiz_description } = req.body;
-    const created_by = req.user.user_id; // Assume user_id is obtained from JWT
+    const created_by = req.user.user_id; 
     const quiz = new Quiz({ quiz_name, quiz_description, created_by });
     await quiz.save();
 
