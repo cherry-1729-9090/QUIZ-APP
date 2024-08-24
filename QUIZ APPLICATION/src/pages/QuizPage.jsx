@@ -8,8 +8,9 @@ import { updateTopScores } from '../axiosCalls/topScoresCalls';
 import { useNavigate } from 'react-router-dom';
 
 function QuizPage() {
-    const { userId, quizId, score, setScore } = useContext(GlobalContext);
-    const { difficulty } = useParams(); // Access the route parameter directly
+    const { user, quizId, score, setScore } = useContext(GlobalContext);
+    
+    const { difficulty } = useParams(); 
     const [questions, setQuestions] = useState([]);
     const [loading, setLoading] = useState(true);
     const [currentQuestion, setCurrentQuestion] = useState(0);
@@ -17,7 +18,10 @@ function QuizPage() {
     const navigate = useNavigate();
     console.log('quizId', quizId);
     console.log('difficulty', difficulty);
-
+    console.log('user in quiz page',user);
+    console.log('this is the quiz page')
+    console.log('user_id in quiz page',user._id)
+    const userId = user._id;
     useEffect(() => {
         const fetchQuestions = async () => {
             const data = await getQuestions(quizId, difficulty);
@@ -29,6 +33,7 @@ function QuizPage() {
 
     const handleNextQuestion = () => {
         console.log(questions)
+        console.log('this is the quiz page');
         const correctAnswer = questions[currentQuestion].correct_options[0];
         if (selectedAnswer === correctAnswer) {
             setScore(score + 1);

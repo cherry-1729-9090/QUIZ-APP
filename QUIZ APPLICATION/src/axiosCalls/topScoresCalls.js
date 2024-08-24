@@ -1,6 +1,5 @@
 import axiosInstance from './axiosInstance';
 export const getTopScores = async (user_id) => {
-    console.log('user_id', user_id);
     try {
         const response = await axiosInstance.get(`/topscores/${user_id}`);
         return response.data;

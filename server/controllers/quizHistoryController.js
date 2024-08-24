@@ -23,9 +23,11 @@ exports.createQuizHistory = async (req, res) => {
 };
 
 exports.getUserQuizHistory = async (req, res) => {
+  console.log('reached server for fetching user quiz history');
+  console.log('req.user in the quiz history fetching request to the server ', req.user);
   try {
     const user_id = req.user.user_id;
-    const quizHistory = await QuizHistory.find({ user_id }).populate('quiz_id', 'quiz_name quiz_description');
+    const quizHistory = await QuizHistory.find({ user_id }) .populate({ path: 'quiz_id', select: 'quiz_name quiz_description' });
     res.status(200).json(quizHistory);
   } catch (error) {
     res.status(400).json({ error: error.message });

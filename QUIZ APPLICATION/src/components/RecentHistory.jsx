@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState } from 'react';
 import { List, Card, Spin } from 'antd';
 import { getTopScores } from '../axiosCalls/topScoresCalls';
 import { GlobalContext } from '../context/GlobalContext';
+import { getUserQuizHistory } from '../axiosCalls/quizHistoryCalls';
 
 function RecentHistory() {
   const { user } = useContext(GlobalContext);
@@ -11,8 +12,10 @@ function RecentHistory() {
   useEffect(() => {
     const fetchHistory = async () => {
       if (user) {  // Ensure user is defined
-        const data = await getTopScores(user.user_id);
+        const data = await getUserQuizHistory(user);
         setHistory(data || []);
+      }else{
+        console.error('User not defined');
       }
       setLoading(false);
     };
