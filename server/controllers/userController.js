@@ -5,7 +5,7 @@ const dotenv = require('dotenv');
 const TopScoresService = require('../services/TopScoreService');
 
 dotenv.config();
-console.log('env secret : ',process.env.JWT_SECRET);
+console.log('env secret : ','secret');
 
 exports.register = async (req, res) => {
   console.log('req body ',req.body);
@@ -25,7 +25,7 @@ exports.register = async (req, res) => {
     const hashedPassword = await bcrypt.hash(password, 10);
     const user = new User({ user_name, password: hashedPassword });
     console.log('User created:', user);
-    const token = jwt.sign({ user_id: user._id }, process.env.JWT_SECRET, { expiresIn: '10h' });
+    const token = jwt.sign({ user_id: user._id }, 'secret', { expiresIn: '10h' });
     user.jwt = token;
     console.log('Token generated:', token);
 
@@ -49,6 +49,7 @@ exports.register = async (req, res) => {
 exports.login = async (req, res) => {
   console.log('Login request received');
   console.log(req.body);
+  console.log(' environment secret : ','secret');
   try {
     const { user_name, password } = req.body;
     const user = await User.findOne({ user_name });
@@ -63,9 +64,9 @@ exports.login = async (req, res) => {
 
     let token = user.jwt;
     try {
-      jwt.verify(token, process.env.JWT_SECRET);
+      jwt.verify(token, 'secret');
     } catch (error) {
-      token = jwt.sign({ user_id: user._id }, process.env.JWT_SECRET, { expiresIn: '10h' });
+      token = jwt.sign({ user_id: user._id }, 'secret', { expiresIn: '10h' });
       user.jwt = token;
       await user.save();
     }
