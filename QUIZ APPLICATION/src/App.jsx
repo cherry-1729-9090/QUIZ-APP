@@ -4,6 +4,8 @@ import { GlobalContext } from './context/GlobalContext';
 import LoginPage from './pages/LoginPage';
 import RegisterPage from './pages/RegisterPage';
 import HomePage from './pages/HomePage';
+import QuizPage from './pages/QuizPage';
+
 
 function App() {
   const { user } = React.useContext(GlobalContext);
@@ -14,6 +16,7 @@ function App() {
         <Route path="/login" element={!user ? <LoginPage /> : <Navigate to="/" />} />
         <Route path="/register" element={!user ? <RegisterPage /> : <Navigate to="/login" />} />
         <Route path="/" element={user ? <HomePage /> : <Navigate to="/login" />} />
+        <Route path="/quiz/:difficulty" element={<QuizPage />} />
       </Routes>
     </Router>
   );
