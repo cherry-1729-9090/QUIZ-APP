@@ -1,5 +1,6 @@
+//NODE JS ESSENTIALS
 const mongoose = require('mongoose');
-const Question = require('./models/Question'); // Ensure the correct path to your Question model
+const Question = require('../models/Question'); // Ensure the correct path to your Question model
 
 mongoose.connect('mongodb+srv://chitluridevicharan:charan@cluster0.qgrpql7.mongodb.net/QUIZ-APPLICATION?retryWrites=true&w=majority&appName=Cluster0', { useNewUrlParser: true, useUnifiedTopology: true })
   .then(() => console.log('Connected to MongoDB'))
@@ -18,7 +19,7 @@ const questions = [
     ],
     correct_options: ["A JavaScript runtime built on Chrome's V8 JavaScript engine"],
     difficulty: "easy",
-    quiz_id: new mongoose.Types.ObjectId('66d12a1b85719c0265722891')
+    quiz_id: new mongoose.Types.ObjectId('66c94a6ff4aec1b960245419')
   },
   {
     question_description: "Which of the following modules is built-in to Node.js?",
@@ -31,7 +32,7 @@ const questions = [
     ],
     correct_options: ["http"],
     difficulty: "easy",
-    quiz_id: new mongoose.Types.ObjectId('66d12a1b85719c0265722891')
+    quiz_id: new mongoose.Types.ObjectId('66c94a6ff4aec1b960245419')
   },
   {
     question_description: "Which command is used to initialize a new Node.js project?",
@@ -44,7 +45,7 @@ const questions = [
     ],
     correct_options: ["npm init"],
     difficulty: "easy",
-    quiz_id: new mongoose.Types.ObjectId('66d12a1b85719c0265722891')
+    quiz_id: new mongoose.Types.ObjectId('66c94a6ff4aec1b960245419')
   },
   {
     question_description: "True or False: Node.js is single-threaded.",
@@ -55,7 +56,7 @@ const questions = [
     ],
     correct_options: ["True"],
     difficulty: "easy",
-    quiz_id: new mongoose.Types.ObjectId('66d12a1b85719c0265722891')
+    quiz_id: new mongoose.Types.ObjectId('66c94a6ff4aec1b960245419')
   },
   {
     question_description: "Which method is used to read files in Node.js?",
@@ -68,7 +69,7 @@ const questions = [
     ],
     correct_options: ["fs.readFile()"],
     difficulty: "easy",
-    quiz_id: new mongoose.Types.ObjectId('66d12a1b85719c0265722891')
+    quiz_id: new mongoose.Types.ObjectId('66c94a6ff4aec1b960245419')
   },
   {
     question_description: "Which of the following is a correct way to import a module in Node.js?",
@@ -81,7 +82,7 @@ const questions = [
     ],
     correct_options: ["require('module_name');"],
     difficulty: "easy",
-    quiz_id: new mongoose.Types.ObjectId('66d12a1b85719c0265722891')
+    quiz_id: new mongoose.Types.ObjectId('66c94a6ff4aec1b960245419')
   },
   {
     question_description: "Which of the following is NOT a Node.js global object?",
@@ -94,7 +95,7 @@ const questions = [
     ],
     correct_options: ["window"],
     difficulty: "easy",
-    quiz_id: new mongoose.Types.ObjectId('66d12a1b85719c0265722891')
+    quiz_id: new mongoose.Types.ObjectId('66c94a6ff4aec1b960245419')
   },
   {
     question_description: "How do you start a Node.js application?",
@@ -107,7 +108,7 @@ const questions = [
     ],
     correct_options: ["node app.js"],
     difficulty: "easy",
-    quiz_id: new mongoose.Types.ObjectId('66d12a1b85719c0265722891')
+    quiz_id: new mongoose.Types.ObjectId('66c94a6ff4aec1b960245419')
   },
   {
     question_description: "True or False: Node.js is platform-independent.",
@@ -118,7 +119,7 @@ const questions = [
     ],
     correct_options: ["True"],
     difficulty: "easy",
-    quiz_id: new mongoose.Types.ObjectId('66d12a1b85719c0265722891')
+    quiz_id: new mongoose.Types.ObjectId('66c94a6ff4aec1b960245419')
   },
   {
     question_description: "Which of the following is used to create a server in Node.js?",
@@ -131,7 +132,7 @@ const questions = [
     ],
     correct_options: ["http.createServer()"],
     difficulty: "easy",
-    quiz_id: new mongoose.Types.ObjectId('66d12a1b85719c0265722891')
+    quiz_id: new mongoose.Types.ObjectId('66c94a6ff4aec1b960245419')
   },
 
   // Medium Level Questions
@@ -146,7 +147,7 @@ const questions = [
     ],
     correct_options: ["fs", "http", "os"],
     difficulty: "medium",
-    quiz_id: new mongoose.Types.ObjectId('66d12a1b85719c0265722891')
+    quiz_id: new mongoose.Types.ObjectId('66c94a6ff4aec1b960245419')
   },
   {
     question_description: "Which method is used to write data to a file in Node.js?",
@@ -159,7 +160,7 @@ const questions = [
     ],
     correct_options: ["fs.writeFile()"],
     difficulty: "medium",
-    quiz_id: new mongoose.Types.ObjectId('66d12a1b85719c0265722891')
+    quiz_id: new mongoose.Types.ObjectId('66c94a6ff4aec1b960245419')
   },
   {
     question_description: "What is the purpose of the 'process' object in Node.js?",
@@ -172,7 +173,7 @@ const questions = [
     ],
     correct_options: ["To interact with the current Node.js process"],
     difficulty: "medium",
-    quiz_id: new mongoose.Types.ObjectId('66d12a1b85719c0265722891')
+    quiz_id: new mongoose.Types.ObjectId('66c94a6ff4aec1b960245419')
   },
   {
     question_description: "True or False: Node.js uses an event-driven, non-blocking I/O model.",
@@ -183,7 +184,7 @@ const questions = [
     ],
     correct_options: ["True"],
     difficulty: "medium",
-    quiz_id: new mongoose.Types.ObjectId('66d12a1b85719c0265722891')
+    quiz_id: new mongoose.Types.ObjectId('66c94a6ff4aec1b960245419')
   },
   {
     question_description: "Which of the following is a built-in module in Node.js for handling paths?",
@@ -196,7 +197,7 @@ const questions = [
     ],
     correct_options: ["path"],
     difficulty: "medium",
-    quiz_id: new mongoose.Types.ObjectId('66d12a1b85719c0265722891')
+    quiz_id: new mongoose.Types.ObjectId('66c94a6ff4aec1b960245419')
   },
   {
     question_description: "Which of the following is the correct way to make a GET request using the 'http' module in Node.js?",
@@ -209,7 +210,7 @@ const questions = [
     ],
     correct_options: ["http.get('http://example.com', callback)"],
     difficulty: "medium",
-    quiz_id: new mongoose.Types.ObjectId('66d12a1b85719c0265722891')
+    quiz_id: new mongoose.Types.ObjectId('66c94a6ff4aec1b960245419')
   },
   {
     question_description: "Which of the following is NOT a valid event emitter method in Node.js?",
@@ -222,7 +223,7 @@ const questions = [
     ],
     correct_options: ["subscribe"],
     difficulty: "medium",
-    quiz_id: new mongoose.Types.ObjectId('66d12a1b85719c0265722891')
+    quiz_id: new mongoose.Types.ObjectId('66c94a6ff4aec1b960245419')
   },
   {
     question_description: "What does the 'npm install' command do?",
@@ -235,7 +236,7 @@ const questions = [
     ],
     correct_options: ["It installs the packages listed in 'package.json'"],
     difficulty: "medium",
-    quiz_id: new mongoose.Types.ObjectId('66d12a1b85719c0265722891')
+    quiz_id: new mongoose.Types.ObjectId('66c94a6ff4aec1b960245419')
   },
   {
     question_description: "True or False: The 'buffer' module in Node.js is used to handle binary data.",
@@ -246,7 +247,7 @@ const questions = [
     ],
     correct_options: ["True"],
     difficulty: "medium",
-    quiz_id: new mongoose.Types.ObjectId('66d12a1b85719c0265722891')
+    quiz_id: new mongoose.Types.ObjectId('66c94a6ff4aec1b960245419')
   },
   {
     question_description: "Which of the following commands is used to remove a package in Node.js?",
@@ -259,7 +260,7 @@ const questions = [
     ],
     correct_options: ["npm uninstall <package_name>"],
     difficulty: "medium",
-    quiz_id: new mongoose.Types.ObjectId('66d12a1b85719c0265722891')
+    quiz_id: new mongoose.Types.ObjectId('66c94a6ff4aec1b960245419')
   },
 
   // Hard Level Questions
@@ -274,7 +275,7 @@ const questions = [
     ],
     correct_options: ["Streams are instances of EventEmitter", "There are four types of streams: Readable, Writable, Duplex, and Transform", "Streams can be used to read data from and write data to files"],
     difficulty: "hard",
-    quiz_id: new mongoose.Types.ObjectId('66d12a1b85719c0265722891')
+    quiz_id: new mongoose.Types.ObjectId('66c94a6ff4aec1b960245419')
   },
   {
     question_description: "Which method is used to handle exceptions in Node.js?",
@@ -287,7 +288,7 @@ const questions = [
     ],
     correct_options: ["All of the above"],
     difficulty: "hard",
-    quiz_id: new mongoose.Types.ObjectId('66d12a1b85719c0265722891')
+    quiz_id: new mongoose.Types.ObjectId('66c94a6ff4aec1b960245419')
   },
   {
     question_description: "What does the 'cluster' module in Node.js do?",
@@ -300,7 +301,7 @@ const questions = [
     ],
     correct_options: ["It creates child processes to handle multiple connections simultaneously"],
     difficulty: "hard",
-    quiz_id: new mongoose.Types.ObjectId('66d12a1b85719c0265722891')
+    quiz_id: new mongoose.Types.ObjectId('66c94a6ff4aec1b960245419')
   },
   {
     question_description: "True or False: Node.js can be used to create both frontend and backend applications.",
@@ -311,7 +312,7 @@ const questions = [
     ],
     correct_options: ["False"],
     difficulty: "hard",
-    quiz_id: new mongoose.Types.ObjectId('66d12a1b85719c0265722891')
+    quiz_id: new mongoose.Types.ObjectId('66c94a6ff4aec1b960245419')
   },
   {
     question_description: "Which of the following statements is true about the 'os' module in Node.js?",
@@ -324,7 +325,7 @@ const questions = [
     ],
     correct_options: ["It provides information about the operating system", "It provides methods to fetch user information"],
     difficulty: "hard",
-    quiz_id: new mongoose.Types.ObjectId('66d12a1b85719c0265722891')
+    quiz_id: new mongoose.Types.ObjectId('66c94a6ff4aec1b960245419')
   },
   {
     question_description: "Which of the following is NOT a correct way to create a buffer in Node.js?",
@@ -337,7 +338,7 @@ const questions = [
     ],
     correct_options: ["new Buffer(size)"],
     difficulty: "hard",
-    quiz_id: new mongoose.Types.ObjectId('66d12a1b85719c0265722891')
+    quiz_id: new mongoose.Types.ObjectId('66c94a6ff4aec1b960245419')
   },
   {
     question_description: "True or False: The 'dns' module in Node.js provides a way to perform DNS lookups and resolve hostnames.",
@@ -348,7 +349,7 @@ const questions = [
     ],
     correct_options: ["True"],
     difficulty: "hard",
-    quiz_id: new mongoose.Types.ObjectId('66d12a1b85719c0265722891')
+    quiz_id: new mongoose.Types.ObjectId('66c94a6ff4aec1b960245419')
   },
   {
     question_description: "What is the purpose of the 'child_process' module in Node.js?",
@@ -361,7 +362,7 @@ const questions = [
     ],
     correct_options: ["To create and manage child processes"],
     difficulty: "hard",
-    quiz_id: new mongoose.Types.ObjectId('66d12a1b85719c0265722891')
+    quiz_id: new mongoose.Types.ObjectId('66c94a6ff4aec1b960245419')
   },
   {
     question_description: "Which of the following methods is used to send HTTP requests in Node.js?",
@@ -374,7 +375,7 @@ const questions = [
     ],
     correct_options: ["http.request()", "https.get()", "http.get()"],
     difficulty: "hard",
-    quiz_id: new mongoose.Types.ObjectId('66d12a1b85719c0265722891')
+    quiz_id: new mongoose.Types.ObjectId('66c94a6ff4aec1b960245419')
   },
   {
     question_description: "Which of the following is true about the 'process.nextTick()' method in Node.js?",
@@ -387,7 +388,7 @@ const questions = [
     ],
     correct_options: ["It is used to schedule a callback to be invoked in the next iteration of the event loop"],
     difficulty: "hard",
-    quiz_id: new mongoose.Types.ObjectId('66d12a1b85719c0265722891')
+    quiz_id: new mongoose.Types.ObjectId('66c94a6ff4aec1b960245419')
   }
 ];
 

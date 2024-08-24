@@ -1,8 +1,9 @@
 import React, { useEffect, useState, useContext } from 'react';
-import { List, Card, Button, Modal, Radio, Spin } from 'antd';
+import { List, Button, Modal, Radio, Spin } from 'antd';
 import { getQuizzes } from '../axiosCalls/quizCalls';
 import { GlobalContext } from '../context/GlobalContext';
 import { useNavigate } from 'react-router-dom';
+import './QuizList.css';
 
 function QuizList() {
   const [quizzes, setQuizzes] = useState([]);
@@ -24,50 +25,51 @@ function QuizList() {
 
   const startQuiz = () => {
     setQuizId(selectedQuiz._id);
-    console.log('selectedQuiz._id', selectedQuiz._id);
-    console.log('difficulty', difficulty);
     navigate(`/quiz/${difficulty}`);
     setModalVisible(false);
   };
 
   if (loading) {
-    return <Spin style={{ display: 'block', margin: 'auto' }} />;
+    return <Spin className="loading-spinner" />;
   }
 
   return (
     <>
-      <Card title="Available Quizzes">
-        <List
-          grid={{ gutter: 16, column: 1 }}
-          dataSource={quizzes}
-          renderItem={quiz => (
-            <div key={quiz._id} style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '10px', border: '1px solid #e0e0e0', borderRadius: '8px', marginBottom: '10px' }}>
-              <div>
-                <h3>{quiz.quiz_name}</h3>
-              </div>
-              <Button type="primary" onClick={() => { setSelectedQuiz(quiz); setModalVisible(true); }}>
-                Start
+      <div className="quiz-list-container">
+        <h2 className="quiz-list-title">Available Quizzes</h2>
+        <div className="quiz-grid">
+          {quizzes.map(quiz => (
+            <div
+              key={quiz._id}
+              className="quiz-item"
+              onClick={() => { setSelectedQuiz(quiz); setModalVisible(true); }}
+            >
+              <h3 className="quiz-title">{quiz.quiz_name}</h3>
+              <p className="quiz-description">{quiz.quiz_description}</p>
+              <Button className="start-button" type="primary">
+                Start Quiz
               </Button>
             </div>
-          )}
-        />
-      </Card>
+          ))}
+        </div>
+      </div>
 
       <Modal
-        title={selectedQuiz?.quiz_name}
+        title={<h3 className="modal-title">{selectedQuiz?.quiz_name}</h3>}
         open={modalVisible}
         onCancel={() => setModalVisible(false)}
         footer={[
-          <Button key="cancel" onClick={() => setModalVisible(false)}>
+          <Button key="cancel" onClick={() => setModalVisible(false)} className="modal-button cancel-button">
             Cancel
           </Button>,
-          <Button key="start" type="primary" onClick={startQuiz}>
+          <Button key="start" type="primary" onClick={startQuiz} className="modal-button start-button">
             Start Quiz
           </Button>
         ]}
+        className="quiz-modal"
       >
-        <p>{selectedQuiz?.quiz_description}</p>
-        <Radio.Group onChange={(e) => setDifficulty(e.target.value)} value={difficulty}>
+        <p className="quiz-description">{selectedQuiz?.quiz_description}</p>
+        <Radio.Group onChange={(e) => setDifficulty(e.target.value)} value={difficulty} className="difficulty-group">
           <Radio value="easy">Easy</Radio>
           <Radio value="medium">Medium</Radio>
           <Radio value="hard">Hard</Radio>
