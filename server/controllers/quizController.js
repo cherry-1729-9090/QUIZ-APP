@@ -1,7 +1,5 @@
 const Quiz = require('../models/Quiz');
-const TopScores = require('../models/topScores');
-const User = require('../models/user');
-
+const TopScoresService = require('../services/TopScoreService');
 exports.createQuiz = async (req, res) => {
   try {
     const { quiz_name, quiz_description } = req.body;
@@ -10,12 +8,15 @@ exports.createQuiz = async (req, res) => {
     await quiz.save();
 
     // Automatically create top_scores entries for all users
-    const users = await User.find({});
-    const topScores = users.map(user => ({
-      quiz_id: quiz._id,
-      user_id: user._id,
-    }));
-    await TopScores.insertMany(topScores);
+    // const users = await User.find({});
+    // const topScores = users.map(user => ({
+    //   quiz_id: quiz._id,
+    //   user_id: user._id,
+    // }));
+    // await TopScores.insertMany(topScores);
+
+    await TopScoresService.createTopScoresForNewQuiz(quiz._id);
+    console.log('Top scores created for new quiz');
 
     res.status(201).json({ message: 'Quiz created successfully' });
   } catch (error) {

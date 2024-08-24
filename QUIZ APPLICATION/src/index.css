@@ -66,3 +66,39 @@ button:focus-visible {
     background-color: #f9f9f9;
   }
 }
+
+
+/* index.css or app.css */
+
+/* Light Theme */
+body.light {
+  background-color: #f0f2f5;
+  color: #000000;
+}
+
+/* Dark Theme */
+body.dark {
+  background-color: #1e1e1e;
+  color: #ffffff;
+}
+
+/* Additional elements styling for both themes */
+.light .ant-layout-header, .dark .ant-layout-header {
+  background-color: inherit;
+}
+
+.light .ant-card, .dark .ant-card {
+  background-color: inherit;
+  color: inherit;
+}
+
+.light .ant-btn-primary, .dark .ant-btn-primary {
+  background-color: #1890ff;
+  border-color: #1890ff;
+  color: #ffffff;
+}
+
+.dark .ant-btn-primary {
+  background-color: #1d1d1d;
+  border-color: #1d1d1d;
+}

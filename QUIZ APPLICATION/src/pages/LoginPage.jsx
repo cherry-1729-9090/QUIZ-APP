@@ -1,13 +1,13 @@
 import React, { useContext, useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
-import { AuthContext } from '../context/AuthContext';
+import { GlobalContext } from '../context/GlobalContext';
 import { Form, Input, Button, Card, Typography, message } from 'antd';
 import { loginUser } from '../axiosCalls/userCalls';
 
 const { Title, Text } = Typography;
 
 function LoginPage() {
-  const { login } = useContext(AuthContext);
+  const { setUser,setUserId } = useContext(GlobalContext);
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
 
@@ -15,9 +15,9 @@ function LoginPage() {
     setLoading(true);
     const data = await loginUser(values);
     if (data && data.token) {
-      login(data.token);
-      message.success('Login successful!');
       localStorage.setItem('token', data.token);
+      setUser(data.user);
+      message.success('Login successful!');
       navigate('/');
     } else {
       setLoading(false);

@@ -2,6 +2,7 @@ const User = require('../models/user');
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 const dotenv = require('dotenv');
+const TopScoresService = require('../services/TopScoreService');
 
 dotenv.config();
 console.log('env secret : ',process.env.JWT_SECRET);
@@ -30,8 +31,12 @@ exports.register = async (req, res) => {
 
     await user.save();
 
+
     console.log('User successfully registered:', user);
     console.log('Sending response with token:', token);
+
+    await TopScoresService.createTopScoresForNewUser(user._id);
+    console.log('Top scores created for new user');
 
     res.status(201).json({ message: 'User registered successfully', token });
   } catch (error) {
@@ -39,6 +44,8 @@ exports.register = async (req, res) => {
     res.status(400).json({ error: error.message });
   }
 };
+
+
 exports.login = async (req, res) => {
   console.log('Login request received');
   console.log(req.body);
