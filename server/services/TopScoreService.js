@@ -1,7 +1,7 @@
 // services/topScoresService.js
 
 const TopScores = require('../models/topScores');
-const User = require('../models/user');
+const User = require('../models/User');
 const Quiz = require('../models/Quiz');
 
 const TopScoresService = {

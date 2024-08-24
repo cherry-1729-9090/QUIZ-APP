@@ -1,6 +1,6 @@
 const QuizHistory = require('../models/QuizHistory');
 const Quiz = require('../models/Quiz');
-const User = require('../models/user');
+const User = require('../models/User');
 
 exports.createQuizHistory = async (req, res) => {
   console.log('reached server for creating a new quiz history');
