@@ -1,17 +1,24 @@
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
-import { Form, Input, Button, Card, Typography } from 'antd';
+import { useNavigate, Link } from 'react-router-dom';
+import { Form, Input, Button, Card, Typography, message } from 'antd';
 import { registerUser } from '../axiosCalls/userCalls';
 
-const { Title } = Typography;
+const { Title, Text } = Typography;
 
 function RegisterPage() {
   const navigate = useNavigate();
 
   const onFinish = async (values) => {
     const data = await registerUser(values);
-    if (data) {
+    console.log('Data:', data);
+    console.log('Data message:', data.message);
+    if (data && data.message === 'Username already exists') {
+      message.error('Username already exists. Please choose another one.');
+    } else if (data && data.token) {
+      message.success('Registration successful! Please log in.');
       navigate('/login');
+    } else {
+      message.error('Registration failed. Please try again.');
     }
   };
 
@@ -32,6 +39,11 @@ function RegisterPage() {
             </Button>
           </Form.Item>
         </Form>
+        <div style={{ marginTop: '16px', textAlign: 'center' }}>
+          <Text>
+            Already registered? <Link to="/login">Please log in</Link>
+          </Text>
+        </div>
       </Card>
     </div>
   );

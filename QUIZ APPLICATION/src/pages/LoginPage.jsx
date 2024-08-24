@@ -1,10 +1,10 @@
 import React, { useContext, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import { AuthContext } from '../context/authContext';
-import { Form, Input, Button, Card, Typography } from 'antd';
+import { useNavigate, Link } from 'react-router-dom';
+import { AuthContext } from '../context/AuthContext';
+import { Form, Input, Button, Card, Typography, message } from 'antd';
 import { loginUser } from '../axiosCalls/userCalls';
 
-const { Title } = Typography;
+const { Title, Text } = Typography;
 
 function LoginPage() {
   const { login } = useContext(AuthContext);
@@ -14,11 +14,20 @@ function LoginPage() {
   const onFinish = async (values) => {
     setLoading(true);
     const data = await loginUser(values);
-    if (data) {
+    if (data && data.token) {
       login(data.token);
+      message.success('Login successful!');
+      localStorage.setItem('token', data.token);
       navigate('/');
     } else {
       setLoading(false);
+      if (data && data.message === 'User not found') {
+        message.error('User not found. Please register.');
+      } else if (data && data.message === 'Invalid credentials') {
+        message.error('Invalid credentials. Please try again.');
+      } else {
+        message.error('Login failed. Please check your credentials.');
+      }
     }
   };
 
@@ -39,6 +48,11 @@ function LoginPage() {
             </Button>
           </Form.Item>
         </Form>
+        <div style={{ marginTop: '16px', textAlign: 'center' }}>
+          <Text>
+            New user? <Link to="/register">Please register</Link>
+          </Text>
+        </div>
       </Card>
     </div>
   );

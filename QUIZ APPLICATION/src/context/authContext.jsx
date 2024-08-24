@@ -1,7 +1,5 @@
 import React, { createContext, useState, useEffect } from 'react';
-import { loginUser } from '../axiosCalls/userCalls';
-import axios from 'axios';
-
+import axiosInstance from '../axiosCalls/axiosInstance';
 export const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
@@ -10,7 +8,7 @@ export const AuthProvider = ({ children }) => {
 
   useEffect(() => {
     if (token) {
-      axios.get('/api/users/me', {
+      axiosInstance.get('/api/users/login', {
         headers: { Authorization: `Bearer ${token}` }
       })
       .then(response => {
@@ -26,7 +24,7 @@ export const AuthProvider = ({ children }) => {
   const login = (newToken) => {
     setToken(newToken);
     localStorage.setItem('token', newToken);
-    axios.get('/api/users/me', {
+    axiosInstance.get('/api/users/login', {
       headers: { Authorization: `Bearer ${newToken}` }
     })
     .then(response => {
