@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-const TopScores = require('./topScores'); // Ensure this model is defined correctly
+const TopScores = require('./TopScores'); // Ensure this model is defined correctly
 
 const quizSchema = new mongoose.Schema({
   quiz_name: { type: String, required: true },

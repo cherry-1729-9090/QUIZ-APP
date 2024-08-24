@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-const TopScores = require('./topScores');
+const TopScores = require('./TopScores');
 const Quiz = require('./Quiz');
 
 // Define the schema
