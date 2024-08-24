@@ -24,6 +24,8 @@ function QuizList() {
 
   const startQuiz = () => {
     setQuizId(selectedQuiz._id);
+    console.log('selectedQuiz._id', selectedQuiz._id);
+    console.log('difficulty', difficulty);
     navigate(`/quiz/${difficulty}`);
     setModalVisible(false);
   };
@@ -53,7 +55,7 @@ function QuizList() {
 
       <Modal
         title={selectedQuiz?.quiz_name}
-        visible={modalVisible}
+        open={modalVisible}
         onCancel={() => setModalVisible(false)}
         footer={[
           <Button key="cancel" onClick={() => setModalVisible(false)}>

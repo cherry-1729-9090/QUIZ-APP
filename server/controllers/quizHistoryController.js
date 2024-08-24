@@ -3,6 +3,8 @@ const Quiz = require('../models/Quiz');
 const User = require('../models/user');
 
 exports.createQuizHistory = async (req, res) => {
+  console.log('reached server for creating a new quiz history');
+  console.log('req.body', req.body);
   try {
     const { quiz_id, score } = req.body;
     const user_id = req.user.user_id;

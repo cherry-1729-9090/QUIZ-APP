@@ -1,18 +1,23 @@
 import React, { useContext, useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom'; // Import useParams
 import { GlobalContext } from '../context/GlobalContext';
 import { getQuestions } from '../axiosCalls/questionCalls';
 import { Progress, Card, Button, Radio, Spin } from 'antd';
+import { createQuizHistory } from '../axiosCalls/quizHistoryCalls';
+import { updateTopScores } from '../axiosCalls/topScoresCalls';
+import { useNavigate } from 'react-router-dom';
 
-function QuizPage({ match }) {
-    const { quizId, score, setScore } = useContext(GlobalContext);
+function QuizPage() {
+    const { userId, quizId, score, setScore } = useContext(GlobalContext);
+    const { difficulty } = useParams(); // Access the route parameter directly
     const [questions, setQuestions] = useState([]);
     const [loading, setLoading] = useState(true);
     const [currentQuestion, setCurrentQuestion] = useState(0);
     const [selectedAnswer, setSelectedAnswer] = useState(null);
-    const difficulty = match.params.difficulty;
-    // console.log(quizId, difficulty);
+    const navigate = useNavigate();
     console.log('quizId', quizId);
-    console.log('difficulty', difficulty);+
+    console.log('difficulty', difficulty);
+
     useEffect(() => {
         const fetchQuestions = async () => {
             const data = await getQuestions(quizId, difficulty);
@@ -23,6 +28,7 @@ function QuizPage({ match }) {
     }, [quizId, difficulty]);
 
     const handleNextQuestion = () => {
+        console.log(questions)
         const correctAnswer = questions[currentQuestion].correct_options[0];
         if (selectedAnswer === correctAnswer) {
             setScore(score + 1);
@@ -39,6 +45,7 @@ function QuizPage({ match }) {
         return (
             <Card title="Quiz Completed">
                 <p>Your final score is: {score}</p>
+                <Button title='Navigate to Home' onClick={() => {createQuizHistory(userId, quizId, score); updateTopScores(userId,quizId,score);navigate('/')}} />
             </Card>
         );
     }

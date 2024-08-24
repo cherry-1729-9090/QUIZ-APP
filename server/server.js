@@ -5,6 +5,7 @@ const userRoutes = require('./routes/userRoutes');
 const quizRoutes = require('./routes/quizRoutes');
 const questionRoutes = require('./routes/questionRoutes');
 const quizHistoryRoutes = require('./routes/quizHistoryRoutes');
+const topScoreRoutes = require('./routes/topScoreRoutes');
 require('dotenv').config();
 
 const app = express();
@@ -13,6 +14,7 @@ const app = express();
 app.use(express.json());
 app.use(cors());
 // Routes
+app.use('/api/topscores',topScoreRoutes);
 app.use('/api/users', userRoutes);
 app.use('/api/quizzes', quizRoutes);
 app.use('/api/questions', questionRoutes);
