@@ -1,6 +1,6 @@
 // services/topScoresService.js
 
-const TopScores = require('../models/topScores');
+const TopScores = require('../models/TopScores');
 const User = require('../models/User');
 const Quiz = require('../models/Quiz');
 
