@@ -5,7 +5,8 @@ import LoginPage from './pages/LoginPage';
 import RegisterPage from './pages/RegisterPage';
 import HomePage from './pages/HomePage';
 import QuizPage from './pages/QuizPage';
-
+// import './styles/lightTheme.css';
+import './App.css';
 
 function App() {
   const { user } = React.useContext(GlobalContext);

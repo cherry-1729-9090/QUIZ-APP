@@ -1,34 +1,65 @@
-/* index.css or app.css */
-
 /* Light Theme */
 body.light {
-    background-color: #f0f2f5;
-    color: #000000;
-}
+    background-color: #ffffff; /* Pure white background */
+    color: #333333; /* Darker text color for better readability */
+  }
+  
+  .light .ant-layout-header {
+    background-color: #f0f0f0; /* Light grey header */
+    border-bottom: 1px solid #e0e0e0; /* Subtle border for separation */
+  }
+  
+  .light .ant-card {
+    background-color: #ffffff; /* White card background */
+    color: #333333; /* Matching text color */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05); /* Subtle shadow for depth */
+    border-radius: 8px; /* Softer rounded corners */
+  }
+  
+  .light .ant-btn-primary {
+    background-color: #007bff; /* Professional blue color */
+    border-color: #007bff;
+    color: #ffffff;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .light .ant-btn-primary:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+    border-color: #0056b3;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); /* Add shadow on hover */
+  }
+  
 
-/* Dark Theme */
+  /* Dark Theme */
 body.dark {
-    background-color: #1e1e1e;
+    background-color: #121212; /* Deep black background */
+    color: #e0e0e0; /* Light grey text for readability */
+  }
+  
+  .dark .ant-layout-header {
+    background-color: #1f1f1f; /* Darker grey header */
+    border-bottom: 1px solid #333333; /* Slightly lighter border */
+  }
+  
+  .dark .ant-card {
+    background-color: #1e1e1e; /* Dark grey card background */
+    color: #e0e0e0; /* Matching text color */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3); /* Subtle shadow for depth */
+    border-radius: 8px; /* Softer rounded corners */
+  }
+  
+  .dark .ant-btn-primary {
+    background-color: #1a73e8; /* Lighter blue for contrast */
+    border-color: #1a73e8;
     color: #ffffff;
-}
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .dark .ant-btn-primary:hover {
+    background-color: #135ba3; /* Darker blue on hover */
+    border-color: #135ba3;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5); /* Add shadow on hover */
+  }
 
-/* Additional elements styling for both themes */
-.light .ant-layout-header, .dark .ant-layout-header {
-    background-color: inherit;
-}
-
-.light .ant-card, .dark .ant-card {
-    background-color: inherit;
-    color: inherit;
-}
-
-.light .ant-btn-primary, .dark .ant-btn-primary {
-    background-color: #1890ff;
-    border-color: #1890ff;
-    color: #ffffff;
-}
-
-.dark .ant-btn-primary {
-    background-color: #1d1d1d;
-    border-color: #1d1d1d;
-}
+  
+  
