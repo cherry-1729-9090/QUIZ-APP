@@ -1,4 +1,4 @@
-const TopScores = require('../models/topScores');
+const TopScores = require('../models/TopScores');
 
 exports.getTopScores = async(req,res)=>{
     try {
