@@ -1,4 +1,4 @@
-const { axiosInstance } = require('./axiosInstance');
+import axiosInstance from './axiosInstance';
 export const getTopScores = async (user_id) => {
     try {
         const response = await axiosInstance.get(`/topscores/${user_id}`);

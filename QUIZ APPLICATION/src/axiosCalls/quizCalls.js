@@ -1,4 +1,4 @@
-const {axiosInstance} = require('./axiosInstance');
+import axiosInstance from './axiosInstance';
 
 export const getQuizzes = async() =>{
     try{

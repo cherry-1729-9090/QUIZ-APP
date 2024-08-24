@@ -1,4 +1,5 @@
-const axios = require('axios')
+import axios from 'axios';
+
 const axiosInstance = axios.create({
     baseURL: 'http://localhost:5000/api/',
     headers: {
@@ -6,4 +7,5 @@ const axiosInstance = axios.create({
     }
 });
 
-export { axiosInstance };
+export default axiosInstance;
+
